@@ -1,3 +1,6 @@
+from operator import truediv
+from optparse import Values
+import re
 from subprocess import list2cmdline
 
 
@@ -33,11 +36,16 @@ def print_word_freq(file):
         #loop through items in our list "list_contnet"
         for word in less_words:
             if word not in totals:
-                totals[word] = 1 #put word in dict w/ count 
+                totals[word] = 1 #put word in dict w/ count 1
             else:
                 totals[word] += 1 #increase count if word already present
         
-        print(totals)
+        #sort dictionary into a tupile
+        sorted_totals = sorted(totals.items(), key=lambda item: item[1], reverse=True)
+        
+        #print our tupile keys with their values
+        for keys in sorted_totals:
+            print(f' {keys[0]: >15} | {keys[1]} {keys[1]*"*"}')
 
 
 #don't touch
