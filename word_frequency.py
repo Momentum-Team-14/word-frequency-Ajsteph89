@@ -2,6 +2,8 @@ from operator import truediv
 from optparse import Values
 import re
 from subprocess import list2cmdline
+import string
+
 
 
 STOP_WORDS = [
@@ -9,8 +11,6 @@ STOP_WORDS = [
     'i', 'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to', 'were',
     'will', 'with'
 ]
-
-import string
 
 def print_word_freq(file):
     """Read in `file` and print out the frequency of words in that file."""
